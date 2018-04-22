@@ -10,9 +10,12 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+    bus:
+      trace:
+        enabled: true
   rabbitmq:
     host: localhost
-    port: 2672
+    port: 5672
     username: guest
     password: guest
 eureka:
@@ -23,4 +26,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: ["bus-refresh"]
+        include: ["*"]
