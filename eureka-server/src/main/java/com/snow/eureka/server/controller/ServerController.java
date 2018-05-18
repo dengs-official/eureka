@@ -13,6 +13,6 @@ public class ServerController {
 
     @RequestMapping("/server")
     public String home(@RequestParam String application) {
-        return "the " + application + " register in port:" + port;
+        return "this is eureka-server, the " + application + " register in port:" + port;
     }
 }
