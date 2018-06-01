@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 public class HomeController {
 
@@ -20,6 +25,19 @@ public class HomeController {
         logger.info("Entering into home() method, the name is: {}", name);
 
         return "hi " + name + ", this is service-home, i am from port:" + port;
+    }
+
+    @RequestMapping("/list")
+    public Map<String, Object> list(@RequestParam String name) {
+        logger.info("Entering into home() method, the name is: {}", name);
+        Map<String, Object> test = new HashMap<>();
+        test.put("result", "success");
+        List<String> data = new ArrayList<>();
+        data.add("1");
+        data.add("2");
+        test.put("data", data);
+        test.put("port", port);
+        return test;
     }
 
 }

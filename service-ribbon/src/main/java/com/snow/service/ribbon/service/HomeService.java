@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Map;
+
 @Service
 public class HomeService {
 
@@ -24,5 +26,9 @@ public class HomeService {
 
     public String homeError(String name) {
         return "hi, " + name + ", sorry, error!";
+    }
+
+    public Map listService(String name) {
+        return restTemplate.getForObject("http://service-home/list?name=" + name, Map.class);
     }
 }
