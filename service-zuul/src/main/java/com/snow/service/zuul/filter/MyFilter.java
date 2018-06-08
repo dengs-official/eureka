@@ -43,7 +43,6 @@ public class MyFilter extends ZuulFilter {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return null;
         }
         logger.info("it is ok");
         return null;

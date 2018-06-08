@@ -4,6 +4,10 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,7 +16,8 @@ import java.util.Map;
 @Service
 public class HomeService {
 
-    Logger logger = LoggerFactory.getLogger(HomeService.class);
+    private static final Logger logger = LoggerFactory.getLogger(HomeService.class);
+    private static final String ACCPET_JSON = "application/json";
 
     @Autowired
     RestTemplate restTemplate;
@@ -28,7 +33,9 @@ public class HomeService {
         return "hi, " + name + ", sorry, error!";
     }
 
-    public Map listService(String name) {
-        return restTemplate.getForObject("http://service-home/list?name=" + name, Map.class);
+    public HttpEntity<String> setAcceptType(String type) {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add(HttpHeaders.ACCEPT, type);
+        return new HttpEntity<>(null, httpHeaders);
     }
 }
