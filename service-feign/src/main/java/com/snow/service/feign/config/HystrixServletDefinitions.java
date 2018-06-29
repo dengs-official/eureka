@@ -1,4 +1,4 @@
-package com.snow.service.ribbon.config;
+package com.snow.service.feign.config;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class HystrixServletDefinitions {
-
 
     @Bean(name = "hystrixRegistrationBean")
     @SuppressWarnings("unchecked")

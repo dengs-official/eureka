@@ -1,4 +1,4 @@
-package com.snow.service.ribbon.service;
+package com.snow.service.ribbon.remote;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
@@ -6,17 +6,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Map;
 
 @Service
-public class HomeService {
+public class HomeRemoteService {
 
-    private static final Logger logger = LoggerFactory.getLogger(HomeService.class);
+    private static final Logger logger = LoggerFactory.getLogger(HomeRemoteService.class);
     private static final String ACCPET_JSON = "application/json";
 
     @Autowired
