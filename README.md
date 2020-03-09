@@ -1,1 +1,1 @@
-# eureka
+# Spring Cloud demo with eureka
